@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZulNova Technology</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2F5597',
+            darknavy: '#0F1B2D',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="font-sans text-white">
+
+  <!-- ================= NAVBAR ================= -->
+ <!-- ================= NAVBAR ================= -->
+<header class="fixed w-full z-50 bg-primary">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <img src="logo.png" alt="ZulNova Logo" class="h-14 w-auto" />
+      <span class="text-xl font-bold tracking-wide">ZulNova Technology</span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
+      <a href="#" class="hover:opacity-80">Services</a>
+      <a href="#" class="hover:opacity-80">Company</a>
+      <a href="#" class="hover:opacity-80">Portfolio</a>
+      <a href="#" class="hover:opacity-80">Careers</a>
+      <a href="#" class="hover:opacity-80">Blog</a>
+    </nav>
+
+    <!-- Desktop CTA -->
+    <a href="#"
+      class="hidden md:inline-block bg-white text-primary px-6 py-2 rounded-md font-semibold hover:bg-opacity-90 transition">
+      Contact Us
+    </a>
+
+    <!-- Mobile Hamburger -->
+    <button id="menu-btn" class="md:hidden focus:outline-none">
+      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="hidden md:hidden bg-primary border-t border-white/20">
+    <nav class="flex flex-col px-6 py-6 space-y-4 text-base font-medium">
+      <a href="#" class="hover:opacity-80">Services</a>
+      <a href="#" class="hover:opacity-80">Company</a>
+      <a href="#" class="hover:opacity-80">Portfolio</a>
+      <a href="#" class="hover:opacity-80">Careers</a>
+      <a href="#" class="hover:opacity-80">Blog</a>
+
+      <a href="#"
+        class="mt-4 inline-block bg-white text-primary text-center px-6 py-3 rounded-md font-semibold">
+        Contact Us
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+  <!-- ================= HERO SECTION ================= -->
+ <section
+  class="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+  style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');"
+>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-darknavy bg-opacity-85"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-6xl mx-auto px-6 text-center mt-6">
+
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 mt-10">
+      Engineering Intelligence for the <br />
+      <span class="text-white underline decoration-4 underline-offset-8">
+        Digital Future
+      </span>
+    </h1>
+
+    <p class="text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto mb-8">
+      ZulNova Technology builds AI-powered software, automation, and digital
+      systems that help businesses move faster, smarter, and ahead of the
+      competition.
+    </p>
+
+    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+      <a href="#"
+        class="bg-white text-darknavy px-8 py-4 rounded-md font-semibold text-lg hover:bg-opacity-90 transition">
+        Book a Free Strategy Session
+      </a>
+      <a href="#"
+        class="border-2 border-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-white hover:text-darknavy transition">
+        Explore Our Capabilities
+      </a>
+    </div>
+
+    <p class="text-sm text-gray-300 tracking-widest uppercase">
+      AI at the Core. Innovation at the Edge.
+    </p>
+  </div>
+</section>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
+
+</body>
+</html>

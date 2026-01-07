@@ -16,7 +16,7 @@
           colors: {
             primary: '#2F5597',
             darknavy: '#0F1B2D',
-            accent: '#efc73e',
+            accent: '#D4AF37',
           }
         }
       }
@@ -68,7 +68,7 @@
       <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
         <a href="#services" class="hover:opacity-80 transition">Services</a>
         <a href="#portfolio" class="hover:opacity-80 transition">Portfolio</a>
-        <a href="#testimonials" class="hover:opacity-80 transition">Clients</a>
+        <a href="#testimonials" class="hover:opacity-80 transition">Careers</a>
         <a href="#" class="hover:opacity-80 transition">Company</a>
         <a href="#" class="hover:opacity-80 transition">Blog</a>
       </nav>
@@ -92,10 +92,9 @@
   </header>
 
   <!-- ================= HERO SECTION ================= -->
- <section class="relative min-h-screen flex items-center justify-center bg-cover bg-center overflow-hidden" 
-    style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');">
+ <section class="relative min-h-screen flex items-center justify-center bg-cover bg-center overflow-hidden bg-black" >
     
-    <div class="absolute inset-0 bg-gradient-to-r from-darknavy via-darknavy/90 to-primary/30"></div>
+    <div class="absolute inset-0 bg-black"></div>
     
     <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 30px 30px;"></div>
 
@@ -558,7 +557,7 @@
       </div>
     </div>
   </section>
-  <section id="contact" class="py-24 bg-gray-500 text-white">
+  <section id="contact" class="py-24 bg-black text-white">
     <div class="max-w-6xl mx-auto px-6">
       <div class="mb-12">
         <h2 class="text-4xl font-extrabold mb-4">Get in <span class="text-accent">Touch</span></h2>
@@ -618,19 +617,28 @@
     </div>
   </section>
   <!-- ================= FOOTER ================= -->
-  <footer class="py-6 bg-black border-t border-white">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <div class="flex items-center justify-center gap-3 mb-6">
-        <div class="h-8 w-8 bg-black rounded-full flex items-center justify-center text-accent font-bold text-sm">ZN</div>
-        <span class="text-lg font-bold">Zulnova</span>
+ <footer class="bg-black border-t border-white/20 pt-10 pb-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+      
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="logo.png" alt="Zulnova Logo" 
+             class="h-10 w-auto md:h-12 transition-transform duration-300 group-hover:scale-105">
+        <span class="text-xl md:text-2xl font-bold tracking-tight text-white">
+          Zulnova
+        </span>
+      </a>
+
+      <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-300 uppercase tracking-widest">
+        <a href="#" class="hover:text-white transition-colors duration-200"> © 2026 Zulnova. All rights reserved.</a>
       </div>
-      <p class="text-white text-sm mb-8">© 2026 Zulnova. All rights reserved.</p>
-      <div class="flex justify-center gap-8 text-xs text-white uppercase tracking-widest">
-        <a href="#" class="hover:text-white transition">Privacy Policy</a>
-        <a href="#" class="hover:text-white transition">Terms of Service</a>
-      </div>
+      
     </div>
-  </footer>
+
+
+  </div>
+</footer>
 
   <script>
    // 1. Mobile Menu Toggle

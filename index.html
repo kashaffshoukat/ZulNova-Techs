@@ -21,115 +21,444 @@
       }
     }
   </script>
+
+  <!-- CRITICAL FIX: Prevent Horizontal Scrolling & Custom Styles -->
+  <style>
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      position: relative;
+    }
+    .service-card:hover .service-image {
+      transform: scale(1.1);
+    }
+    /* Hide scrollbar but keep functionality */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
 </head>
 
-<body class="font-sans text-white">
+<body class="font-sans text-white bg-darknavy">
 
   <!-- ================= NAVBAR ================= -->
- <!-- ================= NAVBAR ================= -->
-<header class="fixed w-full z-50 bg-primary">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <header class="fixed w-full z-50 bg-primary shadow-lg">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
-    <!-- Logo -->
-    <div class="flex items-center gap-3">
-      <img src="logo.png" alt="ZulNova Logo" class="h-14 w-auto" />
-      <span class="text-xl font-bold tracking-wide">ZulNova Technology</span>
-    </div>
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 bg-white rounded-full flex items-center justify-center text-primary font-bold">ZN</div>
+        <span class="text-lg sm:text-xl font-bold tracking-wide truncate max-w-[150px] sm:max-w-none">
+          ZulNova Technology
+        </span>
+      </div>
 
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
-      <a href="#" class="hover:opacity-80">Services</a>
-      <a href="#" class="hover:opacity-80">Company</a>
-      <a href="#" class="hover:opacity-80">Portfolio</a>
-      <a href="#" class="hover:opacity-80">Careers</a>
-      <a href="#" class="hover:opacity-80">Blog</a>
-    </nav>
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
+        <a href="#services" class="hover:opacity-80 transition">Services</a>
+        <a href="#portfolio" class="hover:opacity-80 transition">Portfolio</a>
+        <a href="#" class="hover:opacity-80 transition">Company</a>
+        <a href="#" class="hover:opacity-80 transition">Careers</a>
+        <a href="#" class="hover:opacity-80 transition">Blog</a>
+      </nav>
 
-    <!-- Desktop CTA -->
-    <a href="#"
-      class="hidden md:inline-block bg-white text-primary px-6 py-2 rounded-md font-semibold hover:bg-opacity-90 transition">
-      Contact Us
-    </a>
-
-    <!-- Mobile Hamburger -->
-    <button id="menu-btn" class="md:hidden focus:outline-none">
-      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2"
-        viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu"
-    class="hidden md:hidden bg-primary border-t border-white/20">
-    <nav class="flex flex-col px-6 py-6 space-y-4 text-base font-medium">
-      <a href="#" class="hover:opacity-80">Services</a>
-      <a href="#" class="hover:opacity-80">Company</a>
-      <a href="#" class="hover:opacity-80">Portfolio</a>
-      <a href="#" class="hover:opacity-80">Careers</a>
-      <a href="#" class="hover:opacity-80">Blog</a>
-
+      <!-- Desktop CTA -->
       <a href="#"
-        class="mt-4 inline-block bg-white text-primary text-center px-6 py-3 rounded-md font-semibold">
+        class="hidden md:inline-block bg-white text-primary px-6 py-2 rounded-md font-semibold hover:bg-opacity-90 transition">
         Contact Us
       </a>
-    </nav>
-  </div>
-</header>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-btn" class="md:hidden focus:outline-none p-2">
+        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden bg-primary border-t border-white/10 animate-in slide-in-from-top">
+      <nav class="flex flex-col px-6 py-6 space-y-4 text-base font-medium">
+        <a href="#services" class="hover:bg-white/10 p-2 rounded transition">Services</a>
+        <a href="#portfolio" class="hover:bg-white/10 p-2 rounded transition">Portfolio</a>
+        <a href="#" class="hover:bg-white/10 p-2 rounded transition">Company</a>
+        <a href="#" class="hover:bg-white/10 p-2 rounded transition">Careers</a>
+        <a href="#" class="hover:bg-white/10 p-2 rounded transition">Blog</a>
+
+        <a href="#"
+          class="mt-4 block bg-white text-primary text-center px-6 py-3 rounded-md font-semibold">
+          Contact Us
+        </a>
+      </nav>
+    </div>
+  </header>
 
 
   <!-- ================= HERO SECTION ================= -->
- <section
-  class="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-  style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');"
->
+  <section
+    class="relative min-h-screen flex items-center justify-center bg-cover bg-center overflow-hidden"
+    style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f');"
+  >
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-darknavy/90"></div>
 
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-darknavy bg-opacity-85"></div>
+    <!-- Content -->
+    <div class="relative z-10 max-w-6xl mx-auto px-6 text-center pt-24 pb-12">
+      <!-- Added break-words and responsive text sizing -->
+      <h1 class="text-3xl sm:text-5xl lg:text-7xl font-extrabold leading-tight mb-6 break-words">
+        Engineering Intelligence for the <br class="hidden sm:block" />
+        <span class="text-white underline decoration-4 underline-offset-8">
+          Digital Future
+        </span>
+      </h1>
 
-  <!-- Content -->
-  <div class="relative z-10 max-w-6xl mx-auto px-6 text-center mt-6">
+      <p class="text-base sm:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+        ZulNova Technology builds AI-powered software, automation, and digital
+        systems that help businesses move faster, smarter, and ahead of the
+        competition.
+      </p>
 
-    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 mt-10">
-      Engineering Intelligence for the <br />
-      <span class="text-white underline decoration-4 underline-offset-8">
-        Digital Future
-      </span>
-    </h1>
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+        <a href="#"
+          class="bg-white text-darknavy px-8 py-4 rounded-md font-bold text-lg hover:scale-105 transition transform">
+          Book a Free Strategy Session
+        </a>
+        <a href="#"
+          class="border-2 border-white px-8 py-4 rounded-md font-bold text-lg hover:bg-white hover:text-darknavy transition transform hover:scale-105">
+          Explore Our Capabilities
+        </a>
+      </div>
 
-    <p class="text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto mb-8">
-      ZulNova Technology builds AI-powered software, automation, and digital
-      systems that help businesses move faster, smarter, and ahead of the
-      competition.
-    </p>
+      <p class="text-xs sm:text-sm text-gray-400 tracking-[0.2em] uppercase font-medium">
+        AI at the Core. Innovation at the Edge.
+      </p>
+    </div>
+  </section>
 
-    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-      <a href="#"
-        class="bg-white text-darknavy px-8 py-4 rounded-md font-semibold text-lg hover:bg-opacity-90 transition">
-        Book a Free Strategy Session
-      </a>
-      <a href="#"
-        class="border-2 border-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-white hover:text-darknavy transition">
-        Explore Our Capabilities
-      </a>
+  <!-- ================= SERVICES SECTION ================= -->
+  <section id="services" class="py-24 bg-darknavy">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div class="max-w-2xl">
+          <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-4">Core Capabilities</h2>
+          <h3 class="text-4xl md:text-5xl font-extrabold leading-tight">Solutions Built for Modern Scale</h3>
+        </div>
+        <p class="text-gray-400 text-lg max-w-sm">
+          We combine technical precision with creative strategy to build products that define industries.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Service 1 -->
+        <div class="service-card group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 p-8 transition-all hover:bg-white/10">
+          <div class="relative z-10">
+            <span class="text-primary font-bold text-lg mb-4 block">01</span>
+            <h4 class="text-2xl font-bold mb-4">AI & Machine Learning</h4>
+            <p class="text-gray-400 mb-8 leading-relaxed">Implementing custom neural networks and LLM-powered automation to streamline complex business logic.</p>
+            <div class="overflow-hidden rounded-xl h-48 w-full bg-gray-800">
+               <img src="image_b2a6a5.png" alt="AI Strategy" class="service-image w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 p-8 transition-all hover:bg-white/10">
+          <div class="relative z-10">
+            <span class="text-primary font-bold text-lg mb-4 block">02</span>
+            <h4 class="text-2xl font-bold mb-4">Custom Software Development</h4>
+            <p class="text-gray-400 mb-8 leading-relaxed">Scalable enterprise architectures and high-performance web applications tailored to your specific goals.</p>
+            <div class="overflow-hidden rounded-xl h-48 w-full bg-gray-800">
+               <img src="image_b2a6e7.jpg" alt="Software Development" class="service-image w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 p-8 transition-all hover:bg-white/10">
+          <div class="relative z-10">
+            <span class="text-primary font-bold text-lg mb-4 block">03</span>
+            <h4 class="text-2xl font-bold mb-4">Cloud Infrastructure</h4>
+            <p class="text-gray-400 mb-8 leading-relaxed">Optimizing deployments with AWS/Azure for 99.99% uptime and intelligent resource auto-scaling.</p>
+            <div class="overflow-hidden rounded-xl h-48 w-full bg-gray-800">
+               <img src="image_b2aac5.jpg" alt="Cloud Systems" class="service-image w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 p-8 transition-all hover:bg-white/10">
+          <div class="relative z-10">
+            <span class="text-primary font-bold text-lg mb-4 block">04</span>
+            <h4 class="text-2xl font-bold mb-4">Data Analytics & BI</h4>
+            <p class="text-gray-400 mb-8 leading-relaxed">Turning raw datasets into actionable insights through advanced visualization and predictive modeling.</p>
+            <div class="overflow-hidden rounded-xl h-48 w-full bg-gray-800">
+               <img src="image_b2aae6.jpg" alt="Data Analytics" class="service-image w-full h-full object-cover transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=800'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PORTFOLIO SECTION ================= -->
+  <section id="portfolio" class="py-24 bg-darknavy overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 mb-12">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+        <div>
+          <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Our Work</h2>
+          <h3 class="text-4xl font-extrabold">Recent Projects</h3>
+        </div>
+        
+        <!-- Slider Controls -->
+        <div class="flex gap-4">
+          <button id="slide-left" class="p-3 border border-white/20 rounded-full hover:bg-white hover:text-darknavy transition-all active:scale-95">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button id="slide-right" class="p-3 border border-white/20 rounded-full hover:bg-white hover:text-darknavy transition-all active:scale-95">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
 
-    <p class="text-sm text-gray-300 tracking-widest uppercase">
-      AI at the Core. Innovation at the Edge.
-    </p>
-  </div>
-</section>
+    <!-- Scrollable Container -->
+    <div id="portfolio-track" class="flex gap-6 overflow-x-auto px-6 no-scrollbar snap-x snap-mandatory scroll-smooth">
+      
+      <!-- Project 1 -->
+      <div class="min-w-[300px] sm:min-w-[400px] snap-start group cursor-pointer">
+        <div class="relative overflow-hidden rounded-2xl h-[450px] mb-6 border border-white/10">
+          <div class="absolute inset-0 bg-darknavy/40 group-hover:bg-darknavy/20 transition-all duration-500"></div>
+          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692" alt="Project 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-darknavy to-transparent">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest mb-2 block">FinTech</span>
+            <h4 class="text-2xl font-bold">Project One Name</h4>
+          </div>
+        </div>
+      </div>
 
-<script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
+      <!-- Project 2 -->
+      <div class="min-w-[300px] sm:min-w-[400px] snap-start group cursor-pointer">
+        <div class="relative overflow-hidden rounded-2xl h-[450px] mb-6 border border-white/10">
+          <div class="absolute inset-0 bg-darknavy/40 group-hover:bg-darknavy/20 transition-all duration-500"></div>
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="Project 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-darknavy to-transparent">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest mb-2 block">AI SaaS</span>
+            <h4 class="text-2xl font-bold">Project Two Name</h4>
+          </div>
+        </div>
+      </div>
 
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-</script>
+      <!-- Project 3 -->
+      <div class="min-w-[300px] sm:min-w-[400px] snap-start group cursor-pointer">
+        <div class="relative overflow-hidden rounded-2xl h-[450px] mb-6 border border-white/10">
+          <div class="absolute inset-0 bg-darknavy/40 group-hover:bg-darknavy/20 transition-all duration-500"></div>
+          <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a" alt="Project 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-darknavy to-transparent">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest mb-2 block">E-Commerce</span>
+            <h4 class="text-2xl font-bold">Project Three Name</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="min-w-[300px] sm:min-w-[400px] snap-start group cursor-pointer">
+        <div class="relative overflow-hidden rounded-2xl h-[450px] mb-6 border border-white/10">
+          <div class="absolute inset-0 bg-darknavy/40 group-hover:bg-darknavy/20 transition-all duration-500"></div>
+          <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1" alt="Project 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-darknavy to-transparent">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest mb-2 block">Blockchain</span>
+            <h4 class="text-2xl font-bold">Project Four Name</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="min-w-[300px] sm:min-w-[400px] snap-start group cursor-pointer">
+        <div class="relative overflow-hidden rounded-2xl h-[450px] mb-6 border border-white/10">
+          <div class="absolute inset-0 bg-darknavy/40 group-hover:bg-darknavy/20 transition-all duration-500"></div>
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Project 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-darknavy to-transparent">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest mb-2 block">Healthcare</span>
+            <h4 class="text-2xl font-bold">Project Five Name</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="min-w-[300px] sm:min-w-[400px] snap-start group cursor-pointer">
+        <div class="relative overflow-hidden rounded-2xl h-[450px] mb-6 border border-white/10">
+          <div class="absolute inset-0 bg-darknavy/40 group-hover:bg-darknavy/20 transition-all duration-500"></div>
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Project 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-darknavy to-transparent">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest mb-2 block">Cybersecurity</span>
+            <h4 class="text-2xl font-bold">Project Six Name</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 7 -->
+      <div class="min-w-[300px] sm:min-w-[400px] snap-start group cursor-pointer">
+        <div class="relative overflow-hidden rounded-2xl h-[450px] mb-6 border border-white/10">
+          <div class="absolute inset-0 bg-darknavy/40 group-hover:bg-darknavy/20 transition-all duration-500"></div>
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="Project 7" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-darknavy to-transparent">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest mb-2 block">Data Science</span>
+            <h4 class="text-2xl font-bold">Project Seven Name</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 8 -->
+      <div class="min-w-[300px] sm:min-w-[400px] snap-start group cursor-pointer">
+        <div class="relative overflow-hidden rounded-2xl h-[450px] mb-6 border border-white/10">
+          <div class="absolute inset-0 bg-darknavy/40 group-hover:bg-darknavy/20 transition-all duration-500"></div>
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51" alt="Project 8" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-darknavy to-transparent">
+            <span class="text-primary font-bold text-xs uppercase tracking-widest mb-2 block">DevOps</span>
+            <h4 class="text-2xl font-bold">Project Eight Name</h4>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= BENEFITS SECTION ================= -->
+  <section class="bg-white text-darknavy py-20">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-primary mb-4">
+          Benefits
+        </h2>
+        <p class="text-lg text-gray-600">
+          Why businesses choose ZulNova Technology
+        </p>
+      </div>
+
+      <!-- Benefits Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+        <!-- Card Template -->
+        <div class="group border border-gray-100 rounded-2xl p-8 hover:shadow-2xl hover:border-primary/20 transition-all duration-300 bg-gray-50/30">
+          <div class="flex flex-col gap-4">
+            <div class="text-4xl bg-white w-14 h-14 rounded-lg flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">💲</div>
+            <div>
+              <h3 class="text-xl font-bold mb-3 text-darknavy">Transparent & Fair Pricing</h3>
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                We provide clear, competitive pricing with no hidden costs — ensuring
+                maximum value for every investment you make.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group border border-gray-100 rounded-2xl p-8 hover:shadow-2xl hover:border-primary/20 transition-all duration-300 bg-gray-50/30">
+          <div class="flex flex-col gap-4">
+            <div class="text-4xl bg-white w-14 h-14 rounded-lg flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">🕘</div>
+            <div>
+              <h3 class="text-xl font-bold mb-3 text-darknavy">24/7 Expert Support</h3>
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                Our team stays available around the clock to guide, support,
+                and collaborate with you throughout the entire project lifecycle.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group border border-gray-100 rounded-2xl p-8 hover:shadow-2xl hover:border-primary/20 transition-all duration-300 bg-gray-50/30">
+          <div class="flex flex-col gap-4">
+            <div class="text-4xl bg-white w-14 h-14 rounded-lg flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">📱</div>
+            <div>
+              <h3 class="text-xl font-bold mb-3 text-darknavy">Fully Responsive Design</h3>
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                Every solution we build is optimized for all devices — delivering
+                a seamless experience across mobile, tablet, and desktop.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group border border-gray-100 rounded-2xl p-8 hover:shadow-2xl hover:border-primary/20 transition-all duration-300 bg-gray-50/30">
+          <div class="flex flex-col gap-4">
+            <div class="text-4xl bg-white w-14 h-14 rounded-lg flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">⚡</div>
+            <div>
+              <h3 class="text-xl font-bold mb-3 text-darknavy">High Performance Systems</h3>
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                We engineer fast, scalable, and optimized digital products that
+                perform reliably under real-world business demands.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group border border-gray-100 rounded-2xl p-8 hover:shadow-2xl hover:border-primary/20 transition-all duration-300 bg-gray-50/30">
+          <div class="flex flex-col gap-4">
+            <div class="text-4xl bg-white w-14 h-14 rounded-lg flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">🔍</div>
+            <div>
+              <h3 class="text-xl font-bold mb-3 text-darknavy">SEO-Ready Architecture</h3>
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                Our solutions are built with search engine best practices in mind,
+                helping your business gain visibility and organic growth.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group border border-gray-100 rounded-2xl p-8 hover:shadow-2xl hover:border-primary/20 transition-all duration-300 bg-gray-50/30">
+          <div class="flex flex-col gap-4">
+            <div class="text-4xl bg-white w-14 h-14 rounded-lg flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">🛡️</div>
+            <div>
+              <h3 class="text-xl font-bold mb-3 text-darknavy">Security-First Development</h3>
+              <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                We implement modern security standards to protect your data,
+                infrastructure, and long-term digital assets.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Portfolio Slider Logic
+    const track = document.getElementById('portfolio-track');
+    const btnLeft = document.getElementById('slide-left');
+    const btnRight = document.getElementById('slide-right');
+
+    btnLeft.addEventListener('click', () => {
+      track.scrollBy({ left: -400, behavior: 'smooth' });
+    });
+
+    btnRight.addEventListener('click', () => {
+      track.scrollBy({ left: 400, behavior: 'smooth' });
+    });
+  </script>
 
 </body>
 </html>

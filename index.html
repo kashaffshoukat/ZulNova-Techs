@@ -57,12 +57,13 @@
   <!-- ================= NAVBAR ================= -->
   <header class="fixed w-full z-50 bg-darknavy shadow-lg">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="h-10 w-10 bg-white rounded-full flex items-center justify-center text-yellow-500 font-bold">ZN</div>
-        <span class="text-lg sm:text-xl font-bold tracking-wide truncate max-w-[150px] sm:max-w-none">
-          ZulNova Technology
-        </span>
-      </div>
+      <a href="#" class="flex items-center gap-3 group">
+  <img src="logo.png" alt="ZulNova Logo" 
+       class="h-8 w-auto md:h-12 transition-transform duration-300 group-hover:scale-105">
+  <span class="text-xl md:text-2xl font-bold tracking-tight">
+    ZulNova <span class="text-yellow-500">Technology</span>
+  </span>
+</a>
       <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
         <a href="#services" class="hover:opacity-80 transition">Services</a>
         <a href="#portfolio" class="hover:opacity-80 transition">Portfolio</a>
@@ -77,7 +78,7 @@
         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-white/10">
+    <div id="mobile-menu" class="hidden md:hidden bg-darknavy border-t border-white/10">
       <nav class="flex flex-col px-6 py-6 space-y-4 text-base font-medium">
         <a href="#services" class="hover:bg-white/10 p-2 rounded transition">Services</a>
         <a href="#portfolio" class="hover:bg-white/10 p-2 rounded transition">Portfolio</a>
@@ -321,6 +322,7 @@
     </div>
   </section>
 
+  <!-- ================= BENEFITS SECTION ================= -->
   <!-- ================= BENEFITS SECTION ================= -->
   <section class="bg-white text-black py-5">
     <div class="max-w-6xl mx-auto px-6">

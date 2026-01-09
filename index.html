@@ -52,7 +52,11 @@
         transform: translateX(-100%);
       }
     }
-
+.bg-grid {
+            background-image: linear-gradient(to right, #111 1px, transparent 1px),
+                              linear-gradient(to bottom, #111 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
     html,
     body {
       max-width: 100%;
@@ -65,7 +69,7 @@
     }
 
     :root {
-      --mustard-yellow: #D4AF37;
+      --mustard-yellow: #e5b518;
       --charcoal-black: #0A0A0A;
       --card-bg: #141414;
     }
@@ -229,7 +233,7 @@
         <a href="#" class="hover:bg-accent/10 p-2 rounded transition">Company</a>
         <a href="#" class="hover:bg-accent/10 p-2 rounded transition">Blog</a>
         <a href="#contact"
-          class="bg-black/5 backdrop-blur-md border border-white text-white px-10 py-5 rounded-lg font-bold text-lg hover:bg-accent hover:text-white transition-all duration-300">Contact
+          class="bg-black/5 backdrop-blur-md  text-white rounded-lg font-bold text-lg hover:bg-accent hover:text-white transition-all duration-300">Contact
           Us</a>
       </nav>
     </div>
@@ -242,8 +246,8 @@
     <div class="absolute inset-0 opacity-10"
       style="background-image: radial-gradient(#ffffff 0.5px, transparent 0.5px); background-size: 30px 30px;"></div>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-6 text-center pt-20 pb-12"> <br><br><br>
-      <div class="inline-block px-4 py-1.5 mb-6 border border-accent/30 rounded-full bg-accent/5 backdrop-blur-sm">
+    <div class="relative z-10 max-w-6xl mx-auto px-6 text-center pt-10 pb-6"> <br><br><br>
+      <div class="inline-block px-4 py-1.5 mb-2 border border-accent/30 rounded-full bg-accent/5 backdrop-blur-sm">
         <p class="text-[10px] sm:text-xs text-accent tracking-[0.3em] uppercase font-bold">AI at the Core • Innovation
           at the Edge</p>
       </div>
@@ -411,11 +415,11 @@
       </div>
     </div>
   </section>
-  <section id="services" class="py-24 bg-black text-white">
+  <section id="services" class="py-6 bg-black text-white">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
         <div class="max-w-3xl">
-          <h2 class="text-accent font-bold tracking-widest uppercase text-sm mb-4">Core Capabilities</h2>
+          <h2 class="text-accent font-bold tracking-widest uppercase text-sm">Core Capabilities</h2>
           <h3 class="text-4xl md:text-5xl font-extrabold leading-tight">Solutions Built for Modern Scale</h3>
           <p class="text-white text-lg mt-4">We combine technical precision with creative strategy to build products
             that define industries.</p>

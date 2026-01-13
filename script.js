@@ -4,7 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 1. Mobile Menu Toggle
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             el.style.transform = 'translateY(0)';
         }, 100);
     });
-});document.addEventListener('DOMContentLoaded', () => {
+}); document.addEventListener('DOMContentLoaded', () => {
     // Ensure Lottie starts correctly
     const player = document.querySelector("lottie-player");
     if (player) {
@@ -172,3 +172,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+const schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Zulnova",
+    "url": "https://www.zulnova.com",
+    "logo": "logo.png"
+};
+const script = document.createElement('script');
+script.type = "application/ld+json";
+script.text = JSON.stringify(schema);
+document.head.appendChild(script);

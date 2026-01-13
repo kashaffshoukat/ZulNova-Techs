@@ -9,26 +9,26 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          primary: '#2F5597',
-          darknavy: '#0F1B2D',
-          // Keep accent as a solid color for text/borders if needed
-          accent: '#D4AF37', 
-        },
-        backgroundImage: {
-          'gold-gradient': 'linear-gradient(135deg, #f5e0a3 0%, #d4af37 50%, #8a6d3b 100%)',
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2F5597',
+            darknavy: '#0F1B2D',
+            // Keep accent as a solid color for text/borders if needed
+            accent: '#D4AF37',
+          },
+          backgroundImage: {
+            'gold-gradient': 'linear-gradient(135deg, #f5e0a3 0%, #d4af37 50%, #8a6d3b 100%)',
+          }
         }
       }
     }
-  }
-</script>
+  </script>
 
   <style>
     .stat-card {
-      border-left: 2px solid #8a6d3b ;
+      border-left: 2px solid #8a6d3b;
     }
 
     .marquee {
@@ -63,6 +63,15 @@
       background-size: 40px 40px;
     }
 
+    .meta {
+      background: linear-gradient(135deg,
+          #BF953F 0%,
+          #FCF6BA 25%,
+          #B38728 50%,
+          #FBF5B7 75%,
+          #AA771C 100%);
+    }
+
     html,
     body {
       max-width: 100%;
@@ -70,21 +79,27 @@
       position: relative;
       background-color: var(--charcoal-black);
       color: #ffffff;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       scroll-behavior: smooth;
     }
 
     :root {
-      --mustard-yellow: #d4af37;
+      --metal-gold: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+ --soft-gold: #c5a367;
+            --obsidian: #0a0a0b;
+            --muted-gray: #888888;
+      --mustard-yellow: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
       --charcoal-black: #0A0A0A;
       --card-bg: #141414;
       --bg-color: #0a0a0a;
-            --card-bg: #141414;
-            --gold-primary: #d4ad2d;
-            --gold-gradient: linear-gradient(135deg, #f3d068 0%, #d4af37 50%, #8a6d3b 100%);
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
-            --scroll-speed: 40s;
+      --card-bg: #141414;
+      --gold-primary: linear-gradient(135deg, #bf953f, #dace4f, #b38728, #726c21, #aa771c);
+      --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+      --text-white: #ffffff;
+      --text-gray: #a0a0a0;
+      --scroll-speed: 40s;
+      --gold: #D4AF37;
+
     }
 
     .service-card:hover .service-image {
@@ -144,12 +159,14 @@
 
 
 
-    .bg-gold-gradient bg-clip-text text-transparent {
-      color: var(--mustard-yellow);
+    .gold-text {
+      background: var(--metal-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .bg-gold-gradient {
-      background-color: var(--mustard-yellow);
+      background: var(--metal-gold);
     }
 
     /* Glassmorphism Effect */
@@ -210,181 +227,184 @@
         transform: translateX(-100%);
       }
     }
-     .testimonial-section {
-            width: 100%;
-            padding: 80px 0;
-            background-color: var(--bg-color);
-            overflow: hidden;
-            position: relative;
-        }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+    .testimonial-section {
+      width: 100%;
+      padding: 80px 0;
+      background-color: var(--bg-color);
+      overflow: hidden;
+      position: relative;
+    }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
 
-        .gold-text {
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: bold;
-        }
+    .section-header h2 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
 
-        /* The moving container */
-        .slider-wrapper {
-            display: flex;
-            width: max-content;
-            animation: slide var(--scroll-speed) linear infinite;
-        }
 
-        /* Pause on hover */
-        .slider-wrapper:hover {
-            animation-play-state: paused;
-        }
 
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+    /* The moving container */
+    .slider-wrapper {
+      display: flex;
+      width: max-content;
+      animation: slide var(--scroll-speed) linear infinite;
+    }
 
-        .testimonial-card {
-            width: 400px;
-            background: var(--card-bg);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            padding: 40px;
-            margin: 0 20px;
-            border-radius: 16px;
-            position: relative;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
+    /* Pause on hover */
+    .slider-wrapper:hover {
+      animation-play-state: paused;
+    }
 
-        .testimonial-card:hover {
-            border-color: var(--gold-primary);
-            transform: translateY(-5px);
-            background: #1a1a1a;
-        }
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
 
-        /* Gold metallic accent line */
-        .testimonial-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gold-gradient);
-            border-radius: 12px 12px 0 0;
-        }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
 
-        .card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
+    .testimonial-card {
+      width: 400px;
+      background: var(--card-bg);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      padding: 40px;
+      margin: 0 20px;
+      border-radius: 16px;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .stars {
-            display: flex;
-            gap: 4px;
-            color: var(--gold-primary);
-            font-size: 14px;
-        }
+    .testimonial-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-5px);
+      background: #1a1a1a;
+    }
 
-        .verified-badge {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--gold-primary);
-            background: rgba(212, 175, 55, 0.1);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
+    /* Gold metallic accent line */
+    .testimonial-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold-gradient);
+      border-radius: 12px 12px 0 0;
+    }
 
-        .quote-icon {
-            font-size: 30px;
-            color: var(--gold-primary);
-            opacity: 0.3;
-            line-height: 1;
-        }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
 
-        .testimonial-content {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--text-gray);
-            margin-bottom: 30px;
-            font-style: italic;
-            flex-grow: 1;
-        }
+    .stars {
+      display: flex;
+      gap: 4px;
+      color: var(--gold-primary);
+      font-size: 14px;
+    }
 
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 20px;
-        }
+    .verified-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold-primary);
+      background: rgba(212, 175, 55, 0.1);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
 
-        .user-avatar {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--gold-primary);
-            padding: 2px;
-            background: var(--bg-color);
-        }
+    .quote-icon {
+      font-size: 30px;
+      color: var(--gold-primary);
+      opacity: 0.3;
+      line-height: 1;
+    }
 
-        .user-details h4 {
-            margin: 0;
-            font-size: 1.1rem;
-            color: var(--text-white);
-        }
+    .testimonial-content {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-gray);
+      margin-bottom: 30px;
+      font-style: italic;
+      flex-grow: 1;
+    }
 
-        .user-details span {
-            font-size: 0.9rem;
-            color: var(--gold-primary);
-            display: block;
-        }
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 20px;
+    }
 
-        /* Gradient overlays to fade edges */
-        .testimonial-section::before,
-        .testimonial-section::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            width: 200px;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
+    .user-avatar {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold-primary);
+      padding: 2px;
+      background: var(--bg-color);
+    }
 
-        .testimonial-section::before {
-            left: 0;
-            background: linear-gradient(to right, var(--bg-color), transparent);
-        }
+    .user-details h4 {
+      margin: 0;
+      font-size: 1.1rem;
+      color: var(--text-white);
+    }
 
-        .testimonial-section::after {
-            right: 0;
-            background: linear-gradient(to left, var(--bg-color), transparent);
-        }
-.border-gold {
-  border: 4px solid; /* Set width here */
-  border-image-source: var(--gold-gradient);
-  border-image-slice: 1;
-}
+    .user-details span {
+      font-size: 0.9rem;
+      color: var(--gold-primary);
+      display: block;
+    }
+
+    /* Gradient overlays to fade edges */
+    .testimonial-section::before,
+    .testimonial-section::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .testimonial-section::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg-color), transparent);
+    }
+
+    .testimonial-section::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg-color), transparent);
+    }
+
+    .border-gold {
+      border: 4px solid;
+      /* Set width here */
+      border-image-source: var(--gold-gradient);
+      border-image-slice: 1;
+    }
   </style>
 </head>
 
@@ -394,15 +414,22 @@
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3 group">
         <img src="logo.png" alt="Zulnova Logo" class="h-8 w-auto md:h-12 transition-transform   group-hover:scale-105">
-        <span class="text-xl md:text-2xl font-bold tracking-tight hover:bg-gold-gradient hover:bg-clip-text hover:text-transparent transition-colors">
+        <span
+          class="text-xl md:text-2xl font-bold tracking-tight hover:bg-gold-gradient hover:bg-clip-text hover:text-transparent transition-colors">
           Zulnova
         </span>
       </a>
-      <nav class="hidden md:flex items-center gap-10 text-lg font-medium gold-text">
-        <a href="#services" class="hover:text-white transition">Services</a>
-        <a href="#portfolio-index" class="hover:text-white transition">Portfolio</a>
-        <a href="#testimonials" class="hover:text-white transition">Careers</a>
-        <a href="#" class="hover:text-white transition">Company</a>
+      <nav class="hidden md:flex items-center gap-12 text-lg font-medium text-white">
+        <a href="#services"
+          class="transition hover:bg-gold-gradient hover:bg-clip-text hover:text-transparent">Services</a>
+        <a href="#portfolio-index"
+          class="transition hover:bg-gold-gradient hover:bg-clip-text hover:text-transparent">Portfolio</a>
+        <a href="#testimonials"
+          class="transition hover:bg-gold-gradient hover:bg-clip-text hover:text-transparent">Careers</a>
+        <a href="#team" class="transition hover:bg-gold-gradient hover:bg-clip-text hover:text-transparent">Team</a>
+        <button class="btn-gold px-6 py-3 rounded-full text-xs uppercase tracking-tighter"><a href="#contact">Start
+            Project</a></button>
+
       </nav>
 
       <button id="menu-btn" class="md:hidden focus:outline-none p-2">
@@ -411,16 +438,15 @@
         </svg>
       </button>
     </div>
-    <div id="mobile-menu" class="hidden text-center md:hidden bg-black border-t border-white hover:text-white">
-      <nav class="flex flex-col px-6 py-6 space-y-4 text-lg font-medium">
-        <a href="#services" class="bg-gold-gradient bg-clip-text text-transparent hover:text-white p-2 rounded transition">Services</a>
-        <a href="#portfolio-index" class="bg-gold-gradient bg-clip-text text-transparent hover:text-white p-2 rounded transition">Portfolio</a>
-        <a href="#testimonials" class="bg-gold-gradient bg-clip-text text-transparent hover:text-white p-2 rounded transition">Careers</a>
-        <a href="#" class="bg-gold-gradient bg-clip-text text-transparent hover:text-white p-2 rounded transition">Company</a>
-        <a href="#contact"
-          class="inline-block border-2 border-white/20 bg-gold-gradient bg-clip-text text-transparent hover: bg-gold-gradient hover:text-white px-8 py-3 rounded-sm text-lg font-bold uppercase tracking-widest transition-all">
-          Contact Us
-        </a>
+    <div id="mobile-menu" class="hidden text-center md:hidden bg-black border-t border-white">
+      <nav class="flex flex-col px-6 py-6 space-y-4 text-lg font-medium hover:gold-text">
+        <a href="#services" class="gold-text hover:text-white p-2 rounded transition">- Services</a>
+        <a href="#portfolio-index" class="gold-text hover:text-white p-2 rounded transition">- Portfolio</a>
+        <a href="#testimonials" class="gold-text hover:text-white p-2 rounded transition">- Careers</a>
+        <a href="#team" class="gold-text hover:text-white p-2 rounded transition">- Team</a>
+        <button class="btn-gold px-6 py-3 rounded-full text-xs uppercase tracking-tighter"><a href="#contact">Start
+            Project</a></button>
+
       </nav>
     </div>
   </header>
@@ -428,12 +454,11 @@
   <section class="relative min-h-screen flex items-center justify-center bg-cover bg-center overflow-hidden bg-black">
 
     <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-     <iframe
-      class="absolute top-1/2 left-1/2 w-[300%] h-[300%] -translate-x-1/2 -translate-y-1/2 md:w-[115%] md:h-[115%] opacity-50 grayscale"
-      src="https://www.youtube.com/embed/eT7N7gke9nk?autoplay=1&mute=1&loop=1&playlist=eT7N7gke9nk&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3"
-      frameborder="0" 
-      allow="autoplay; encrypted-media">
-    </iframe>
+      <iframe
+        class="absolute top-1/2 left-1/2 w-[300%] h-[300%] -translate-x-1/2 -translate-y-1/2 md:w-[115%] md:h-[115%] opacity-50 grayscale"
+        src="https://www.youtube.com/embed/eT7N7gke9nk?autoplay=1&mute=1&loop=1&playlist=eT7N7gke9nk&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3"
+        frameborder="0" allow="autoplay; encrypted-media">
+      </iframe>
 
       <div class="absolute inset-0 bg-gradient-to-br from-black/80 via-[#D4AF37]/20 to-black/90 mix-blend-multiply">
       </div>
@@ -448,7 +473,7 @@
 
       <h1 class="text-white text-3xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.1] mb-6 tracking-tight">
         Engineering Intelligence <br class="hidden lg:block" />
-        for the <span class="bg-gold-gradient bg-clip-text text-transparent italic">Digital Future</span>
+        for the <span class="gold-text italic">Digital Future</span>
       </h1>
 
       <p class="text-base sm:text-lg lg:text-xl text-white max-w-3xl mx-auto mb-12 leading-relaxed">
@@ -457,23 +482,24 @@
       </p>
 
       <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
-        <a href="#contact" class="hover:bg-gold-gradient relative bg-black border border-white text-white px-10 py-5 rounded-lg font-bold text-lg 
+        <a href="#contact" class="btn-gold px-6 py-3 rounded-full text-xs uppercase tracking-tighter
            ">
           Book a Free Strategy Session
           <span class="absolute -top-1 -right-1 flex h-4 w-4">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full  bg-gold-gradient opacity-75"></span>
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full  bg-gold-gradient opacity-75"></span>
             <span class="relative inline-flex rounded-full h-4 w-4 bg-gold-gradient"></span>
           </span>
         </a>
-
-        <a href="#portfolio-index" class="bg-gold-gradient border border-white text-white px-10 py-5 rounded-lg font-bold text-lg 
+        <a href="#contact" class="btn-gold px-6 py-3 rounded-full text-xs uppercase tracking-tighter
            ">
-          Explore Our Capabilities
+          Contact Us Now
+
         </a>
+
+
+
       </div>
-
-
-    </div>
   </section>
   <!-- Social Proof / Logo Marquee -->
   <section class="py-12 border-y border-white/5 bg-white/[0.01]">
@@ -529,12 +555,12 @@
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
         <div class="max-w-xl">
-          <h2 class="text-4xl font-bold mb-4">High-Impact <span class="bg-gold-gradient bg-clip-text text-transparent">Solutions</span></h2>
+          <h2 class="text-4xl font-bold mb-4">High-Impact <span class="gold-text">Solutions</span></h2>
           <p class="text-white">Tailored technical services designed to solve complex business challenges and drive
             measurable growth.</p>
         </div>
-        <div class="bg-gold-gradient bg-clip-text text-transparent font-bold text-sm tracking-widest uppercase">
-          Our Core Competencies <i class="fas fa-chevron-down ml-2 animate-bounce"></i>
+        <div class="gold-text font-bold text-sm tracking-widest uppercase">
+          Our Core Competencies <i class="fas fa-chevron-down ml-2 animate-bounce gold-text"></i>
         </div>
       </div>
 
@@ -549,15 +575,14 @@
           <p class="text-white leading-relaxed mb-8">From architecture to deployment, we build secure, high-traffic web
             ecosystems utilizing Python, Go, and React.</p>
           <ul class="space-y-3 mb-8 text-sm text-white">
-            <li class="flex items-center gap-2"><i class="fas fa-check bg-gold-gradient bg-clip-text text-transparent text-[10px]"></i> Microservices
+            <li class="flex items-center gap-2"><i class="fas fa-check gold-text text-[10px]"></i> Microservices
               Architecture</li>
-            <li class="flex items-center gap-2"><i class="fas fa-check bg-gold-gradient bg-clip-text text-transparent text-[10px]"></i> API Ecosystem
+            <li class="flex items-center gap-2"><i class="fas fa-check gold-text text-[10px]"></i> API Ecosystem
               Design</li>
-            <li class="flex items-center gap-2"><i class="fas fa-check bg-gold-gradient bg-clip-text text-transparent text-[10px]"></i> Cloud Security
+            <li class="flex items-center gap-2"><i class="fas fa-check gold-text text-[10px]"></i> Cloud Security
               Audit</li>
           </ul>
-          <a href="#"
-            class="inline-flex items-center gap-2 font-bold text-sm group-hover:bg-gold-gradient bg-clip-text text-transparent transition-colors">
+          <a href="#" class="inline-flex items-center gap-2 font-bold text-sm group-hover:gold-text transition-colors">
             Technical Specs <i class="fas fa-arrow-right text-xs"></i>
           </a>
         </div>
@@ -567,19 +592,19 @@
           <div class="w-16 h-16 bg-gold-gradient rounded-2xl flex items-center justify-center mb-8">
             <i class="fas fa-layer-group text-2xl text-black"></i>
           </div>
-          <h3 class="text-2xl font-bold mb-4 bg-gold-gradient bg-clip-text text-transparent">Strategic UI/UX Design</h3>
+          <h3 class="text-2xl font-bold mb-4 gold-text">Strategic UI/UX Design</h3>
           <p class="text-white leading-relaxed mb-8">Converting users into customers through psychology-driven design
             and seamless interaction patterns.</p>
           <ul class="space-y-3 mb-8 text-sm text-white">
-            <li class="flex items-center gap-2"><i class="fas fa-check bg-gold-gradient bg-clip-text text-transparent text-[10px]"></i> Conversion Rate
+            <li class="flex items-center gap-2"><i class="fas fa-check gold-text text-[10px]"></i> Conversion Rate
               Optimization</li>
-            <li class="flex items-center gap-2"><i class="fas fa-check bg-gold-gradient bg-clip-text text-transparent text-[10px]"></i> Behavioral UX
+            <li class="flex items-center gap-2"><i class="fas fa-check gold-text text-[10px]"></i> Behavioral UX
               Research</li>
-            <li class="flex items-center gap-2"><i class="fas fa-check bg-gold-gradient bg-clip-text text-transparent text-[10px]"></i> Rapid Prototyping
+            <li class="flex items-center gap-2"><i class="fas fa-check gold-text text-[10px]"></i> Rapid Prototyping
             </li>
           </ul>
           <a href="portfolio-index"
-            class="inline-flex items-center gap-2 font-bold text-sm bg-gold-gradient bg-clip-text text-transparent underline decoration-2 underline-offset-8">
+            class="inline-flex items-center gap-2 font-bold text-sm gold-text underline decoration-2 underline-offset-8">
             View Portfolio
           </a>
         </div>
@@ -588,21 +613,20 @@
         <div class="glass-card p-10 rounded-3xl group">
           <div
             class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-8 transition-colors group-hover:bg-gold-gradient">
-            <i class="fas fa-chart-line text-2xl bg-gold-gradient bg-clip-text text-transparent group-hover:text-black"></i>
+            <i class="fas fa-chart-line text-2xl gold-text group-hover:text-black"></i>
           </div>
           <h3 class="text-2xl font-bold mb-4">Growth Intelligence</h3>
           <p class="text-white leading-relaxed mb-8">Data-led marketing that captures market share and lowers
             acquisition costs through automation.</p>
           <ul class="space-y-3 mb-8 text-sm text-white">
-            <li class="flex items-center gap-2"><i class="fas fa-check bg-gold-gradient bg-clip-text text-transparent text-[10px]"></i> Advanced SEO/SEM
+            <li class="flex items-center gap-2"><i class="fas fa-check gold-text text-[10px]"></i> Advanced SEO/SEM
               Ops</li>
-            <li class="flex items-center gap-2"><i class="fas fa-check bg-gold-gradient bg-clip-text text-transparent text-[10px]"></i> Growth Loop
+            <li class="flex items-center gap-2"><i class="fas fa-check gold-text text-[10px]"></i> Growth Loop
               Engineering</li>
-            <li class="flex items-center gap-2"><i class="fas fa-check bg-gold-gradient bg-clip-text text-transparent text-[10px]"></i> Predictive Data
+            <li class="flex items-center gap-2"><i class="fas fa-check gold-text text-[10px]"></i> Predictive Data
               Analytics</li>
           </ul>
-          <a href="#"
-            class="inline-flex items-center gap-2 font-bold text-sm group-hover:bg-gold-gradient bg-clip-text text-transparent transition-colors">
+          <a href="#" class="inline-flex items-center gap-2 font-bold text-sm group-hover:gold-text transition-colors">
             Marketing ROI <i class="fas fa-arrow-right text-xs"></i>
           </a>
         </div>
@@ -613,7 +637,7 @@
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-6">
         <div class="max-w-3xl">
-          <h2 class="bg-gold-gradient bg-clip-text text-transparent font-bold tracking-widest uppercase text-sm">Core Capabilities</h2>
+          <h2 class="gold-text font-bold tracking-widest uppercase text-sm">Core Capabilities</h2>
           <h3 class="text-4xl md:text-5xl font-extrabold leading-tight">Solutions Built for Modern Scale</h3>
           <p class="text-white text-lg mt-4">We combine technical precision with creative strategy to build products
             that define industries.</p>
@@ -623,64 +647,69 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
         <div
-          class="service-card group relative overflow-hidden rounded-3xl bg-black border border-white p-8 transition-all hover:shadow-xl hover:bg-gold-gradient">
+          class="service-card group relative overflow-hidden rounded-3xl bg-black border border-white p-8 transition-all duration-500 hover:bg-gradient-to-br hover:from-[#8B6E32] hover:via-[#C5A059] hover:to-[#4C3B1A] hover:shadow-2xl">
           <div class="relative z-10">
-            <span class="font-bold text-lg mb-4 block hover:text-white">01</span>
-            <h4 class="text-2xl font-bold mb-4">AI & Machine Learning</h4>
-            <p class="text-white mb-8 leading-relaxed">Implementing custom neural networks and LLM-powered automation to
-              streamline complex business logic and data processing.</p>
+            <span class="font-bold text-lg mb-4 block group-hover:text-black transition-colors">01</span>
+            <h4 class="text-2xl font-bold mb-4 group-hover:text-black transition-colors">AI & Machine Learning</h4>
+            <p class="text-white mb-8 leading-relaxed group-hover:text-black/90 transition-colors">
+              Implementing custom neural networks and LLM-powered automation to streamline complex business logic and
+              data processing.
+            </p>
             <div class="overflow-hidden rounded-xl h-48 w-full img-placeholder bg-slate-200">
               <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=600"
                 loading="lazy" alt="AI Strategy"
-                class="service-image w-full h-full object-cover transition-transform duration-500">
+                class="service-image w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
             </div>
           </div>
         </div>
-
         <div
-          class="service-card group relative overflow-hidden rounded-3xl bg-black border border-white p-8 transition-all hover:shadow-xl hover:bg-gold-gradient">
+          class="service-card group relative overflow-hidden rounded-3xl bg-black border border-white p-8 transition-all duration-500 hover:bg-gradient-to-br hover:from-[#8B6E32] hover:via-[#C5A059] hover:to-[#4C3B1A] hover:shadow-2xl">
           <div class="relative z-10">
-            <span class="hover:text-white font-bold text-lg mb-4 block">02</span>
-            <h4 class="text-2xl font-bold mb-4">Full-Stack Development</h4>
-            <p class="text-white mb-8 leading-relaxed">Scalable enterprise architectures and high-performance web
-              applications built with React, Next.js, and Node.js.</p>
+            <span class="font-bold text-lg mb-4 block group-hover:text-black transition-colors">02</span>
+            <h4 class="text-2xl font-bold mb-4 group-hover:text-black transition-colors">Full Stack Developement</h4>
+            <p class="text-white mb-8 leading-relaxed group-hover:text-black/90 transition-colors">
+              Scalable enterprise architectures and high-performance web
+              applications built with React, Next.js, and Node.js. </p>
             <div class="overflow-hidden rounded-xl h-48 w-full img-placeholder bg-slate-200">
               <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=600"
-                loading="lazy" alt="Software Development"
-                class="service-image w-full h-full object-cover transition-transform duration-500">
+                loading="lazy" alt="AI Strategy"
+                class="service-image w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
             </div>
           </div>
         </div>
-
         <div
-          class="service-card group relative overflow-hidden rounded-3xl bg-black border border-white p-8 transition-all hover:shadow-xl hover:bg-gold-gradient">
+          class="service-card group relative overflow-hidden rounded-3xl bg-black border border-white p-8 transition-all duration-500 hover:bg-gradient-to-br hover:from-[#8B6E32] hover:via-[#C5A059] hover:to-[#4C3B1A] hover:shadow-2xl">
           <div class="relative z-10">
-            <span class="font-bold text-lg mb-4 block">03</span>
-            <h4 class="text-2xl font-bold mb-4">Mobile App Development</h4>
-            <p class="text-white mb-8 leading-relaxed">Native and cross-platform mobile experiences that provide
-              seamless performance across iOS and Android devices.</p>
+            <span class="font-bold text-lg mb-4 block group-hover:text-black transition-colors">03</span>
+            <h4 class="text-2xl font-bold mb-4 group-hover:text-black transition-colors">Mobile App Development</h4>
+            <p class="text-white mb-8 leading-relaxed group-hover:text-black/90 transition-colors">
+              Native and cross-platform mobile experiences that provide seamless performance across iOS and Android
+              devices. </p>
             <div class="overflow-hidden rounded-xl h-48 w-full img-placeholder bg-slate-200">
               <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=600"
-                loading="lazy" alt="Mobile Apps"
-                class="service-image w-full h-full object-cover transition-transform duration-500">
+                loading="lazy" alt="AI Strategy"
+                class="service-image w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            </div>
+          </div>
+        </div>
+        <div
+          class="service-card group relative overflow-hidden rounded-3xl bg-black border border-white p-8 transition-all duration-500 hover:bg-gradient-to-br hover:from-[#8B6E32] hover:via-[#C5A059] hover:to-[#4C3B1A] hover:shadow-2xl">
+          <div class="relative z-10">
+            <span class="font-bold text-lg mb-4 block group-hover:text-black transition-colors">04</span>
+            <h4 class="text-2xl font-bold mb-4 group-hover:text-black transition-colors">Cloud Infrastructure</h4>
+            <p class="text-white mb-8 leading-relaxed group-hover:text-black/90 transition-colors">
+              Implementing custom neural networks and LLM-powered automation to streamline complex business logic and
+              data processing.
+            </p>
+            <div class="overflow-hidden rounded-xl h-48 w-full img-placeholder bg-slate-200">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600"
+                loading="lazy" alt="AI Strategy"
+                class="service-image w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
             </div>
           </div>
         </div>
 
-        <div
-          class="service-card group relative overflow-hidden rounded-3xl bg-black border border-white p-8 transition-all hover:shadow-xl hover:bg-gold-gradient">
-          <div class="relative z-10">
-            <span class="font-bold text-lg mb-4 block">04</span>
-            <h4 class="text-2xl font-bold mb-4">Cloud Infrastructure</h4>
-            <p class="text-white mb-8 leading-relaxed">Securing your digital future with robust AWS/Azure deployments,
-              CI/CD pipelines, and 99.9% uptime guarantees.</p>
-            <div class="overflow-hidden rounded-xl h-48 w-full img-placeholder bg-slate-200">
-              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600"
-                loading="lazy" alt="Cloud Systems"
-                class="service-image w-full h-full object-cover transition-transform duration-500">
-            </div>
-          </div>
-        </div>
+
 
       </div>
     </div>
@@ -688,7 +717,7 @@
   <section class="py-24 bg-[#0F0F0F]">
     <div class="container mx-auto px-6">
       <div class="max-w-2xl mx-auto text-center mb-16">
-        <h2 class="text-4xl font-bold mb-6">Our <span class="bg-gold-gradient bg-clip-text text-transparent">Process</span> to Success</h2>
+        <h2 class="text-4xl font-bold mb-6">Our <span class="gold-text">Process</span> to Success</h2>
         <p class="text-white">We don't just execute; we partner. Our framework is designed for transparency and
           velocity.</p>
       </div>
@@ -716,12 +745,91 @@
       </div>
     </div>
   </section>
+      <section id="team" class="relative py-24 px-6 overflow-hidden">
+        <!-- Background Ambient Glow -->
+        <div class="glow-effect top-0 left-0"></div>
+        <div class="glow-effect bottom-0 right-0"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Header Section -->
+            <div class="text-center mb-20">
+                <h2 class="text-sm font-semibold tracking-[0.3em] uppercase text-gray-400 mb-4">The Minds Behind Zulnove</h2>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    Meet Our <span class="gold-text">Elite Team</span>
+                </h1>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                    We combine technical mastery with creative brilliance to build software that defines the future of digital experiences.
+                </p>
+            </div>
+
+            <!-- Team Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Member 1 -->
+                <div class="team-card rounded-2xl p-8 group">
+                    <div class="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-2 border-transparent group-hover:border-[#D4AF37] transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop" alt="Founder" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <div class="image-overlay absolute inset-0 flex items-center justify-center space-x-4">
+                            <a href="#" class="social-icon text-xl"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon text-xl"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-white mb-2">Marcus Vance</h3>
+                        <p class="gold-text font-medium tracking-wide uppercase text-sm mb-4">Founder & Chief Architect</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            A visionary with over 15 years in enterprise software, driving the technical strategy for Zulnove's global initiatives.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="team-card rounded-2xl p-8 group">
+                    <div class="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-2 border-transparent group-hover:border-[#D4AF37] transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop" alt="Product Head" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <div class="image-overlay absolute inset-0 flex items-center justify-center space-x-4">
+                            <a href="#" class="social-icon text-xl"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon text-xl"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-white mb-2">Elena Rossi</h3>
+                        <p class="gold-text font-medium tracking-wide uppercase text-sm mb-4">Head of UX Strategy</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Crafting intuitive, high-conversion interfaces that blend aesthetic elegance with seamless user journeys.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="team-card rounded-2xl p-8 group">
+                    <div class="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-2 border-transparent group-hover:border-[#D4AF37] transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=500&auto=format&fit=crop" alt="Engineering Lead" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <div class="image-overlay absolute inset-0 flex items-center justify-center space-x-4">
+                            <a href="#" class="social-icon text-xl"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-white mb-2">Julian Thorne</h3>
+                        <p class="gold-text font-medium tracking-wide uppercase text-sm mb-4">VP of Engineering</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            A specialist in scalable cloud architectures and blockchain integration, ensuring Zulnove products are future-proof.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+          
+        </div>
+    </section>
   <!-- Call to Action -->
   <section class="py-24">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gold-gradient rounded-3xl p-12 lg:p-20 text-center text-black relative overflow-hidden">
-        <div class="absolute top-0 right-0 p-10 opacity-10">
-          <i class="fas fa-paper-plane text-9xl -rotate-12"></i>
+      <div class="bg-gold rounded-3xl p-12 lg:p-20 text-center text-black relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-10">
+          <i class="fas fa-paper-plane text-9xl -rotate-12 text-black/30"></i>
         </div>
         <h3 class="text-3xl lg:text-rxl font-black mb-6">Ready to start your next big project?</h3>
         <p class="text-lg font-medium mb-10 opacity-80 max-w-2xl mx-auto">
@@ -741,10 +849,10 @@
     <div class="max-w-[1400px] mx-auto">
       <div class="flex items-center space-x-4 mb-6">
         <div class="h-[1px] w-20 bg-gold-gradient"></div>
-        <span class="bg-gold-gradient bg-clip-text text-transparent font-bold uppercase tracking-[0.4em] text-xs">Portfolio Index</span>
+        <span class="gold-text font-bold uppercase tracking-[0.4em] text-xs">Portfolio Index</span>
       </div>
       <h1 class="text-6xl md:text-7xl font-extrabold heading-font leading-[0.9] mb-12 uppercase tracking-tighter">
-        Engineering <br> <span class="bg-gold-gradient bg-clip-text text-transparent">Market</span> Dominance.
+        Engineering <br> <span class="gold-text">Market</span> Dominance.
       </h1>
       <p class="max-w-xl text-lg text-white/50 text-centerleading-relaxed">
         A curated selection of high-performance digital products. We specialize in architecting systems that solve
@@ -764,12 +872,12 @@
         <div class="grid lg:grid-cols-12 gap-12 items-start">
           <div class="lg:col-span-5 order-2 lg:order-1">
             <div class="mb-12">
-              <h4 class="text-xs font-bold bg-gold-gradient bg-clip-text text-transparent uppercase tracking-[0.3em] mb-4">01 / Fintech & Security</h4>
-              <h2 class="text-4xl md:text-5xl font-bold heading-font mb-6 leading-tight">Quantify: Real-time Asset
+              <h4 class="text-xs font-bold gold-text uppercase tracking-[0.3em] mb-4">01 / Fintech & Security</h4>
+              <h2 class="text-4xl md:text-3xl font-bold heading-font mb-6 leading-tight">Quantify: Real-time Asset
                 Tracking</h2>
               <p class="text-white/50 text-lg mb-8 leading-relaxed">
                 We re-engineered the core data ingestion engine for a tier-one financial firm, reducing latency from
-                400ms to <span class="bg-gold-gradient bg-clip-text text-transparent font-bold">12ms</span>.
+                400ms to <span class="gold-text font-bold">12ms</span>.
               </p>
             </div>
 
@@ -777,7 +885,7 @@
             <div class="grid grid-cols-2 gap-y-10 mb-12">
               <div>
                 <h5 class="text-[10px] uppercase tracking-widest text-white/30 font-bold mb-2">Impact</h5>
-                <p class="text-2xl font-bold bg-gold-gradient bg-clip-text text-transparent">+312% ROI</p>
+                <p class="text-2xl font-bold gold-text">+312% ROI</p>
               </div>
               <div>
                 <h5 class="text-[10px] uppercase tracking-widest text-white/30 font-bold mb-2">Scaling</h5>
@@ -812,7 +920,7 @@
                   class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700">
                 <!-- Content Mockup -->
                 <div class="absolute bottom-8 right-8 bg-black/90 p-6 border-l-2 border-gold-gradient backdrop-blur">
-                  <p class="text-[10px] uppercase font-bold bg-gold-gradient bg-clip-text text-transparent mb-1">Architecture Preview</p>
+                  <p class="text-[10px] uppercase font-bold gold-text mb-1">Architecture Preview</p>
                   <p class="text-sm font-medium">Distributed Microservices</p>
                 </div>
               </div>
@@ -833,7 +941,7 @@
                   alt="Quantify Asset Tracking Dashboard"
                   class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700">
                 <div class="absolute top-8 left-8 bg-black/90 p-6 border-r-2 border-gold-gradient backdrop-blur">
-                  <p class="text-[10px] uppercase font-bold bg-gold-gradient bg-clip-text text-transparent mb-1">Global Delivery</p>
+                  <p class="text-[10px] uppercase font-bold gold-text mb-1">Global Delivery</p>
                   <p class="text-sm font-medium">Edge Computed Assets</p>
                 </div>
               </div>
@@ -842,8 +950,8 @@
 
           <div class="lg:col-span-5 lg:pl-12">
             <div class="mb-12">
-              <h4 class="text-xs font-bold bg-gold-gradient bg-clip-text text-transparent uppercase tracking-[0.3em] mb-4">02 / Headless Commerce</h4>
-              <h2 class="text-4xl md:text-5xl font-bold heading-font mb-6 leading-tight">Vanguard Luxury Marketplace
+              <h4 class="text-xs font-bold gold-text uppercase tracking-[0.3em] mb-4">02 / Headless Commerce</h4>
+              <h2 class="text-4xl md:text-3xl font-bold heading-font mb-6 leading-tight">Vanguard Luxury Marketplace
               </h2>
               <p class="text-white/50 text-lg mb-8 leading-relaxed">
                 Migrated a legacy monolithic platform to a modern Headless API architecture. Resulted in a sub-second
@@ -854,7 +962,7 @@
             <div class="grid grid-cols-2 gap-y-10 mb-12">
               <div>
                 <h5 class="text-[10px] uppercase tracking-widest text-white/30 font-bold mb-2">Speed</h5>
-                <p class="text-2xl font-bold bg-gold-gradient bg-clip-text text-transparent">0.4s LCP</p>
+                <p class="text-2xl font-bold gold-text">0.4s LCP</p>
               </div>
               <div>
                 <h5 class="text-[10px] uppercase tracking-widest text-white/30 font-bold mb-2">Conversions</h5>
@@ -883,207 +991,307 @@
       </div>
     </div>
   </section>
+  <section class="py-12 px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start mb-24 gap-10">
+            <div class="max-w-xl">
+ <p class="text-gray-400 max-w-2xl mx-auto text-sm leading-relaxed">
+                    We combine technical mastery with creative brilliance to build software that defines the future of digital experiences.
+                </p>
+ <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                    Selected <span class="gold-text">Work</span>
+                </h1>                              <div class="stat-line mb-3"></div>
+          </div>
+        </div>
 
+        <div class="space-y-12">
+            <!-- Project 1: Fintech -->
+            <div class="project-card rounded-sm overflow-hidden flex flex-col lg:flex-row items-stretch">
+                <div class="lg:w-1/2 relative overflow-hidden min-h-[400px]">
+                    <img src="https://www.electronicpaymentsinternational.com/wp-content/uploads/sites/4/2019/11/Fintech-customer-trends.jpg" alt="Fintech" class="project-image">
+                </div>
+                <div class="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center">
+                    <span class="gold-text text-[10px] uppercase tracking-[0.3em] font-bold mb-6">Financial Systems</span>
+                    <h3 class="text-4xl text-white mb-6">NexPay Global</h3>
+                    <p class="text-gray-400 mb-10 text-sm leading-relaxed font-light">
+                        Architecting high-frequency cross-border settlements for European institutional banking. We optimized ledger synchronization to sub-millisecond speeds.
+                    </p>
+                    <div class="flex gap-12">
+                        <div>
+                            <div class="stat-line mb-3"></div>
+                            <div class="text-xl text-white">40%</div>
+                            <div class="text-[9px] uppercase tracking-tighter text-gray-500">Latency Reduction</div>
+                        </div>
+                        <div>
+                            <div class="stat-line mb-3"></div>
+                            <div class="text-xl text-white">$14M</div>
+                            <div class="text-[9px] uppercase tracking-tighter text-gray-500">Daily Volume</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Healthcare -->
+            <div class="project-card rounded-sm overflow-hidden flex flex-col lg:flex-row-reverse items-stretch">
+                <div class="lg:w-1/2 relative overflow-hidden min-h-[400px]">
+                    <img src="https://static.wixstatic.com/media/e41c9c_de3d308742cc4fa892e4b7a21ca2c7a9~mv2.png/v1/fill/w_980,h_551,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/e41c9c_de3d308742cc4fa892e4b7a21ca2c7a9~mv2.png" alt="Healthcare" class="project-image">
+                </div>
+                <div class="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center">
+                    <span class="gold-text text-[10px] uppercase tracking-[0.3em] font-bold mb-6">Bio-Technology</span>
+                    <h3 class="text-4xl text-white mb-6">BioSync Nexus</h3>
+                    <p class="text-gray-400 mb-10 text-sm leading-relaxed font-light">
+                        Deploying a HIPAA-compliant data mesh for multi-state hospital networks. Our focus was on zero-trust security and predictive patient diagnostics.
+                    </p>
+                    <div class="flex gap-12">
+                        <div>
+                            <div class="stat-line mb-3"></div>
+                            <div class="text-xl text-white">99.99%</div>
+                            <div class="text-[9px] uppercase tracking-tighter text-gray-500">Uptime Reliability</div>
+                        </div>
+                        <div>
+                            <div class="stat-line mb-3"></div>
+                            <div class="text-xl text-white">12M+</div>
+                            <div class="text-[9px] uppercase tracking-tighter text-gray-500">Records Secured</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Smart City -->
+            <div class="project-card rounded-sm overflow-hidden flex flex-col lg:flex-row items-stretch">
+                <div class="lg:w-1/2 relative overflow-hidden min-h-[400px]">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.drNSM5lkPmELVY3B3GFjJQHaFP?w=1030&h=728&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Smart City" class="project-image">
+                </div>
+                <div class="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center">
+                    <span class="gold-text text-[10px] uppercase tracking-[0.3em] font-bold mb-6">IoT & Infrastructure</span>
+                    <h3 class="text-4xl text-white mb-6">UrbanFlow IoT</h3>
+                    <p class="text-gray-400 mb-10 text-sm leading-relaxed font-light">
+                        Developing the backbone for metropolitan traffic intelligence. Our system handles over 100,000 concurrent pings per second with centralized emergency routing.
+                    </p>
+                    <div class="flex gap-12">
+                        <div>
+                            <div class="stat-line mb-3"></div>
+                            <div class="text-xl text-white">22%</div>
+                            <div class="text-[9px] uppercase tracking-tighter text-gray-500">Energy Savings</div>
+                        </div>
+                        <div>
+                            <div class="stat-line mb-3"></div>
+                            <div class="text-xl text-white">300ms</div>
+                            <div class="text-[9px] uppercase tracking-tighter text-gray-500">Event Response</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
   <!-- Client Testimonial (High Trust) -->
   <section class="px-8">
     <div class="max-w-4xl mx-auto">
       <div class="max-w-3xl">
-        <svg class="w-16 h-16 bg-gold-gradient bg-clip-text text-transparent mb-12 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+        <svg class="w-16 h-16 gold-text mb-12" fill="currentColor" viewBox="0 0 24 24">
           <path
             d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C15.4647 8 15.017 8.44772 15.017 9V12C15.017 12.5523 14.5693 13 14.017 13H11.017C10.4647 13 10.017 12.5523 10.017 12V9C10.017 7.34315 11.3601 6 13.017 6H16.017C18.2261 6 20.017 7.79086 20.017 10V15C20.017 17.2091 18.2261 19 16.017 19H14.017V21H14.017ZM6.017 21L6.017 18C6.017 16.8954 6.91243 16 8.017 16H11.017C11.5693 16 12.017 15.5523 12.017 15V9C12.017 8.44772 11.5693 8 11.017 8H8.017C7.46472 8 7.017 8.44772 7.017 9V12C7.017 12.5523 6.56929 13 6.017 13H3.017C2.46472 13 2.017 12.5523 2.017 12V9C2.017 7.34315 3.36015 6 5.017 6H8.017C10.2261 6 12.017 7.79086 12.017 10V15C12.017 17.2091 10.2261 19 8.017 19H6.017V21H6.017Z" />
         </svg>
         <p class="text-3xl md:text-3xl font-medium leading-tight mb-12">
           "Zulnova Tech doesn't just deliver code; they deliver business leverage. Their architectural decisions saved
-          us over <span class="bg-gold-gradient bg-clip-text text-transparent font-bold">$1.2M in annual cloud costs</span> while doubling our platform
+          us over <span class="gold-text font-bold">$1.2M in annual cloud costs</span> while doubling our platform
           speed."
         </p>
         <div class="flex items-center space-x-6">
           <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=marcus" alt="Marcus" class="user-avatar">
-                    <div class="user-details">
-                        <h4>Marcus Rossi</h4>
-                        <span>Founder, Elite Tech</span>
+            <img src="https://i.pravatar.cc/150?u=marcus" alt="Marcus" class="user-avatar">
+            <div class="user-details">
+              <h4>Marcus Rossi</h4>
+              <span>Founder, Elite Tech</span>
 
-                    </div>
-                </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-<br><br>
+  <br><br>
   <!-- Contact CTA -->
   <section class="py-44 px-8 relative overflow-hidden">
     <div class="absolute inset-0 bg-white/5 opacity-10 pointer-events-none"></div>
     <div class="max-w-[1400px] mx-auto text-center">
-      <h2 class="bg-gold-gradient bg-clip-text text-transparent text-5xl md:text-8xl font-black heading-font uppercase leading-[0.8] mb-12 italic">
-        Secure your <br> <span class="bg-gold-gradient bg-clip-text text-transparent">Competitive Edge.</span>
+      <h2 class="gold-text text-5xl md:text-8xl font-black heading-font uppercase leading-[0.8] mb-12 italic">
+        Secure your <br> <span class="gold-text">Competitive Edge.</span>
       </h2>
       <p class="max-w-2xl mx-auto text-white text-xl mb-16 font-light">
         We are currently accepting high-impact partnerships for Q3 2026. Let's discuss your technical requirements.
       </p>
-      <a href="#contact"
-        class="inline-block border-2 border-white/10 bg-gold-gradient bg-clip-text text-transparent hover:bg-gold-gradient hover:text-white px-16 py-6 rounded-sm text-lg font-bold uppercase tracking-widest transition-all">
-        Request a Consultation
-      </a>
+      <button class="btn-gold px-6 py-3 rounded-full text-xs uppercase tracking-tighter"><a href="#contact"> Request a
+          Consultation
+        </a></button>
+
+
     </div>
   </section>
-   <div class="testimonial-section">
-        <div class="section-header">
-            <h2>Client <span class="gold-text">Excellence</span></h2>
-            <p style="color: var(--text-gray)">Authentic reviews from our global partners</p>
-        </div>
-
-        <div class="slider-wrapper">
-            <!-- Testimonial 1 -->
-            <div class="testimonial-card">
-                <div class="card-top">
-                    <div class="stars">★★★★★</div>
-                    <div class="verified-badge">✓ Verified</div>
-                </div>
-                <div class="testimonial-content">
-                    "The attention to detail and the premium execution exceeded all our expectations. A truly world-class experience that redefined our brand's luxury appeal."
-                </div>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=julian" alt="Julian" class="user-avatar">
-                    <div class="user-details">
-                        <h4>Julian Draxler</h4>
-                        <span>CEO, Lux Media</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 2 -->
-            <div class="testimonial-card">
-                <div class="card-top">
-                    <div class="stars">★★★★★</div>
-                    <div class="verified-badge">✓ Verified</div>
-                </div>
-                <div class="testimonial-content">
-                    "Working with this team brought a level of sophistication to our brand that we hadn't seen before. Simply magnificent craftsmanship and communication."
-                </div>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=amara" alt="Amara" class="user-avatar">
-                    <div class="user-details">
-                        <h4>Amara Sterling</h4>
-                        <span>Creative Director</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 3 -->
-            <div class="testimonial-card">
-                <div class="card-top">
-                    <div class="stars">★★★★★</div>
-                    <div class="verified-badge">✓ Verified</div>
-                </div>
-                <div class="testimonial-content">
-                    "The metallic finish and the dark aesthetic were exactly what we needed for our high-end product launch. Professionalism at its finest."
-                </div>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=marcus" alt="Marcus" class="user-avatar">
-                    <div class="user-details">
-                        <h4>Marcus Rossi</h4>
-                        <span>Founder, Elite Tech</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonial 4 -->
-            <div class="testimonial-card">
-                <div class="card-top">
-                    <div class="stars">★★★★★</div>
-                    <div class="verified-badge">✓ Verified</div>
-                </div>
-                <div class="testimonial-content">
-                    "Unparalleled quality and a seamless workflow. They turned our vision into a golden reality. I couldn't recommend them enough for premium projects."
-                </div>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=elena" alt="Elena" class="user-avatar">
-                    <div class="user-details">
-                        <h4>Elena Laurent</h4>
-                        <span>Marketing Head</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Duplicate Set for Seamless Loop -->
-            <div class="testimonial-card">
-                <div class="card-top">
-                    <div class="stars">★★★★★</div>
-                    <div class="verified-badge">✓ Verified</div>
-                </div>
-                <div class="testimonial-content">
-                    "The attention to detail and the premium execution exceeded all our expectations. A truly world-class experience that redefined our brand's luxury appeal."
-                </div>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=julian" alt="Julian" class="user-avatar">
-                    <div class="user-details">
-                        <h4>Julian Draxler</h4>
-                        <span>CEO, Lux Media</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="card-top">
-                    <div class="stars">★★★★★</div>
-                    <div class="verified-badge">✓ Verified</div>
-                </div>
-                <div class="testimonial-content">
-                    "Working with this team brought a level of sophistication to our brand that we hadn't seen before. Simply magnificent craftsmanship and communication."
-                </div>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=amara" alt="Amara" class="user-avatar">
-                    <div class="user-details">
-                        <h4>Amara Sterling</h4>
-                        <span>Creative Director</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="card-top">
-                    <div class="stars">★★★★★</div>
-                    <div class="verified-badge">✓ Verified</div>
-                </div>
-                <div class="testimonial-content">
-                    "The metallic finish and the dark aesthetic were exactly what we needed for our high-end product launch. Professionalism at its finest."
-                </div>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=marcus" alt="Marcus" class="user-avatar">
-                    <div class="user-details">
-                        <h4>Marcus Rossi</h4>
-                        <span>Founder, Elite Tech</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <div class="card-top">
-                    <div class="stars">★★★★★</div>
-                    <div class="verified-badge">✓ Verified</div>
-                </div>
-                <div class="testimonial-content">
-                    "Unparalleled quality and a seamless workflow. They turned our vision into a golden reality. I couldn't recommend them enough for premium projects."
-                </div>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=elena" alt="Elena" class="user-avatar">
-                    <div class="user-details">
-                        <h4>Elena Laurent</h4>
-                        <span>Marketing Head</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="testimonial-section">
+    <div class="section-header">
+      <h2>Client <span class="gold-text">Excellence</span></h2>
+      <p style="color: var(--text-gray)">Authentic reviews from our global partners</p>
     </div>
+
+    <div class="slider-wrapper">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <div class="card-top">
+          <div class="stars">★★★★★</div>
+          <div class="verified-badge">✓ Verified</div>
+        </div>
+        <div class="testimonial-content">
+          "The attention to detail and the premium execution exceeded all our expectations. A truly world-class
+          experience that redefined our brand's luxury appeal."
+        </div>
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/150?u=julian" alt="Julian" class="user-avatar">
+          <div class="user-details">
+            <h4>Julian Draxler</h4>
+            <span>CEO, Lux Media</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="card-top">
+          <div class="stars">★★★★★</div>
+          <div class="verified-badge">✓ Verified</div>
+        </div>
+        <div class="testimonial-content">
+          "Working with this team brought a level of sophistication to our brand that we hadn't seen before. Simply
+          magnificent craftsmanship and communication."
+        </div>
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/150?u=amara" alt="Amara" class="user-avatar">
+          <div class="user-details">
+            <h4>Amara Sterling</h4>
+            <span>Creative Director</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <div class="card-top">
+          <div class="stars">★★★★★</div>
+          <div class="verified-badge">✓ Verified</div>
+        </div>
+        <div class="testimonial-content">
+          "The metallic finish and the dark aesthetic were exactly what we needed for our high-end product launch.
+          Professionalism at its finest."
+        </div>
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/150?u=marcus" alt="Marcus" class="user-avatar">
+          <div class="user-details">
+            <h4>Marcus Rossi</h4>
+            <span>Founder, Elite Tech</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card">
+        <div class="card-top">
+          <div class="stars">★★★★★</div>
+          <div class="verified-badge">✓ Verified</div>
+        </div>
+        <div class="testimonial-content">
+          "Unparalleled quality and a seamless workflow. They turned our vision into a golden reality. I couldn't
+          recommend them enough for premium projects."
+        </div>
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/150?u=elena" alt="Elena" class="user-avatar">
+          <div class="user-details">
+            <h4>Elena Laurent</h4>
+            <span>Marketing Head</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duplicate Set for Seamless Loop -->
+      <div class="testimonial-card">
+        <div class="card-top">
+          <div class="stars">★★★★★</div>
+          <div class="verified-badge">✓ Verified</div>
+        </div>
+        <div class="testimonial-content">
+          "The attention to detail and the premium execution exceeded all our expectations. A truly world-class
+          experience that redefined our brand's luxury appeal."
+        </div>
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/150?u=julian" alt="Julian" class="user-avatar">
+          <div class="user-details">
+            <h4>Julian Draxler</h4>
+            <span>CEO, Lux Media</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="card-top">
+          <div class="stars">★★★★★</div>
+          <div class="verified-badge">✓ Verified</div>
+        </div>
+        <div class="testimonial-content">
+          "Working with this team brought a level of sophistication to our brand that we hadn't seen before. Simply
+          magnificent craftsmanship and communication."
+        </div>
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/150?u=amara" alt="Amara" class="user-avatar">
+          <div class="user-details">
+            <h4>Amara Sterling</h4>
+            <span>Creative Director</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="card-top">
+          <div class="stars">★★★★★</div>
+          <div class="verified-badge">✓ Verified</div>
+        </div>
+        <div class="testimonial-content">
+          "The metallic finish and the dark aesthetic were exactly what we needed for our high-end product launch.
+          Professionalism at its finest."
+        </div>
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/150?u=marcus" alt="Marcus" class="user-avatar">
+          <div class="user-details">
+            <h4>Marcus Rossi</h4>
+            <span>Founder, Elite Tech</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="card-top">
+          <div class="stars">★★★★★</div>
+          <div class="verified-badge">✓ Verified</div>
+        </div>
+        <div class="testimonial-content">
+          "Unparalleled quality and a seamless workflow. They turned our vision into a golden reality. I couldn't
+          recommend them enough for premium projects."
+        </div>
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/150?u=elena" alt="Elena" class="user-avatar">
+          <div class="user-details">
+            <h4>Elena Laurent</h4>
+            <span>Marketing Head</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <section id="benefits" class="bg-black bg-black py-4">
     <div class="max-w-6xl mx-auto px-6">
-       <div class="section-header">
-            <h2><span class="gold-text">Benefits</span></h2>
-            <p style="color: var(--text-gray)">Why businesses choose Zulnova</p>
-        </div>
+      <div class="section-header">
+        <h2><span class="gold-text">Benefits</span></h2>
+        <p style="color: var(--text-gray)">Why businesses choose Zulnova</p>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
@@ -1174,118 +1382,280 @@
       </div>
     </div>
   </section>
-  <section id="faq" class="py-12 bg-blacknavy">
-    <div class="max-w-6xl mx-auto px-6">
-       <div class="section-header">
-            <h2 class="gold-text">FAQs</h2>
-            <p style="color: var(--text-gray)">Frequently Asked Questions</p>
-        </div>
+  <section id="faq" class="py-24 bg-[#0a0a0b] text-white">
+    <div class="max-w-5xl mx-auto px-6">
 
-      <div class="space-y-4">
-        <div class="faq-item group border-white">
+      <div class="text-center mb-20">
+        <span class="text-xs uppercase tracking-[0.4em] gold-text font-medium">FAQs</span>
+        <h2 class="text-4xl md:text-5xl font-light mt-4 tracking-tight">Everything you <span
+            class="italic font-serif gold-text">need to know</span></h2>
+        <div class="w-16 h-[1px] bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mt-8"></div>
+      </div>
+
+      <div class="divide-y divide-white/10">
+
+        <div class="faq-item group">
           <button
-            class="faq-toggle w-full flex items-center justify-between p-6 bg-black bg-black rounded-xl transition-all hover:bg-opacity-90">
-            <span class="text-left font-bold text-lg">Do We Offer Client Support?</span>
-            <svg class="w-6 h-6 transform transition-transform  " fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            class="faq-toggle w-full flex items-center justify-between py-8 text-left transition-all hover:bg-white/[0.02] px-4 rounded-lg">
+            <span
+              class="text-lg md:text-xl font-light tracking-wide text-gray-300 group-hover:text-white transition-colors">Do
+              we offer dedicated client support?</span>
+            <div class="relative flex items-center justify-center w-6 h-6">
+              <div class="absolute w-full h-[1px] bg-gold-gradient"></div>
+              <div class="icon-v absolute w-[1px] h-full bg-gold-gradient transition-transform duration-500"></div>
+            </div>
           </button>
-          <div class="faq-content max-h-0 overflow-hidden transition-all   ease-in-out bg-black/5 rounded-b-xl">
-            <div class="p-6 text-white">
-              Yes, we provide 24/7 dedicated support for all our enterprise clients to ensure system reliability and
-              immediate troubleshooting.
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+            <div class="px-4 pb-8 text-gray-400 font-light leading-relaxed max-w-2xl">
+              We provide 24/7 white-glove support for all enterprise partners. Our team ensures continuous system
+              reliability and immediate troubleshooting to maintain your digital excellence.
             </div>
           </div>
         </div>
 
         <div class="faq-item group">
           <button
-            class="faq-toggle w-full flex items-center justify-between p-6 bg-black bg-black rounded-xl transition-all hover:bg-opacity-90">
-            <span class="text-left font-bold text-lg">How Many Revisions Do We Offer to Clients?</span>
-            <svg class="w-6 h-6 transform transition-transform  " fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            class="faq-toggle w-full flex items-center justify-between py-8 text-left transition-all hover:bg-white/[0.02] px-4 rounded-lg">
+            <span
+              class="text-lg md:text-xl font-light tracking-wide text-gray-300 group-hover:text-white transition-colors">How
+              many revisions do we offer?</span>
+            <div class="relative flex items-center justify-center w-6 h-6">
+              <div class="absolute w-full h-[1px] bg-gold-gradient"></div>
+              <div class="icon-v absolute w-[1px] h-full bg-gold-gradient transition-transform duration-500"></div>
+            </div>
           </button>
-          <div class="faq-content max-h-0 overflow-hidden transition-all   ease-in-out bg-black/5 rounded-b-xl">
-            <div class="p-6 text-white">
-              We typically offer three major revision rounds during the design phase to ensure the final product aligns
-              perfectly with your vision.
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+            <div class="px-4 pb-8 text-gray-400 font-light leading-relaxed max-w-2xl">
+              To guarantee your vision is perfectly realized, we offer three major revision cycles. This structured
+              approach ensures precision and total alignment with your brand strategy.
             </div>
           </div>
         </div>
 
         <div class="faq-item group">
           <button
-            class="faq-toggle w-full flex items-center justify-between bg-black p-6 bg-black rounded-xl transition-all hover:bg-opacity-90">
-            <span class="text-left font-bold text-lg">How Do We Design Websites?</span>
-            <svg class="w-6 h-6 transform transition-transform  " fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            class="faq-toggle w-full flex items-center justify-between py-8 text-left transition-all hover:bg-white/[0.02] px-4 rounded-lg">
+            <span
+              class="text-lg md:text-xl font-light tracking-wide text-gray-300 group-hover:text-white transition-colors">How
+              do we design our websites?</span>
+            <div class="relative flex items-center justify-center w-6 h-6">
+              <div class="absolute w-full h-[1px] bg-gold-gradient"></div>
+              <div class="icon-v absolute w-[1px] h-full bg-gold-gradient transition-transform duration-500"></div>
+            </div>
           </button>
-          <div class="faq-content max-h-0 overflow-hidden transition-all   ease-in-out bg-black/5 rounded-b-xl">
-            <div class="p-6 text-white">
-              Our design process is data-driven, focusing on User Experience (UX) and high-performance architecture to
-              ensure your site is both beautiful and fast.
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+            <div class="px-4 pb-8 text-gray-400 font-light leading-relaxed max-w-2xl">
+              Our process is a fusion of data-driven UX research and high-performance architecture. We prioritize speed
+              and aesthetics equally to build platforms that are as fast as they are beautiful.
             </div>
           </div>
         </div>
 
         <div class="faq-item group">
           <button
-            class="faq-toggle w-full flex items-center justify-between bg-black  p-6 bg-black rounded-xl transition-all hover:bg-opacity-90">
-            <span class="text-left font-bold text-lg">How Does Our Developed Website Help Increase Conversions and
-              Sales?</span>
-            <svg class="w-6 h-6 transform transition-transform  " fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            class="faq-toggle w-full flex items-center justify-between py-8 text-left transition-all hover:bg-white/[0.02] px-4 rounded-lg">
+            <span
+              class="text-lg md:text-xl font-light tracking-wide text-gray-300 group-hover:text-white transition-colors">How
+              do we help increase conversions and sales?</span>
+            <div class="relative flex items-center justify-center w-6 h-6">
+              <div class="absolute w-full h-[1px] bg-gold-gradient"></div>
+              <div class="icon-v absolute w-[1px] h-full bg-gold-gradient transition-transform duration-500"></div>
+            </div>
           </button>
-          <div class="faq-content max-h-0 overflow-hidden transition-all   ease-in-out bg-black/5 rounded-b-xl">
-            <div class="p-6 text-white">
-              By implementing conversion rate optimization (CRO) techniques, AI-driven personalization, and
-              lightning-fast load times that reduce bounce rates.
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+            <div class="px-4 pb-8 text-gray-400 font-light leading-relaxed max-w-2xl">
+              By integrating Conversion Rate Optimization (CRO) frameworks, AI-driven personalization, and
+              lightning-fast load times, we effectively reduce bounce rates and guide users toward clear actions.
             </div>
           </div>
         </div>
 
         <div class="faq-item group">
           <button
-            class="faq-toggle w-full flex items-center justify-between bg-black p-6 bg-black rounded-xl transition-all hover:bg-opacity-90">
-            <span class="text-left font-bold text-lg">Do We Follow Best Security Practices?</span>
-            <svg class="w-6 h-6 transform transition-transform  " fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            class="faq-toggle w-full flex items-center justify-between py-8 text-left transition-all hover:bg-white/[0.02] px-4 rounded-lg">
+            <span
+              class="text-lg md:text-xl font-light tracking-wide text-gray-300 group-hover:text-white transition-colors">Do
+              we follow best security practices?</span>
+            <div class="relative flex items-center justify-center w-6 h-6">
+              <div class="absolute w-full h-[1px] bg-gold-gradient"></div>
+              <div class="icon-v absolute w-[1px] h-full bg-gold-gradient transition-transform duration-500"></div>
+            </div>
           </button>
-          <div class="faq-content max-h-0 overflow-hidden transition-all   ease-in-out bg-black/5 rounded-b-xl">
-            <div class="p-6 text-white">
-              Absolutely. We implement SSL encryption, regular security audits, and follow OWASP standards to protect
-              your data from vulnerabilities.
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+            <div class="px-4 pb-8 text-gray-400 font-light leading-relaxed max-w-2xl">
+              Security is non-negotiable. We implement enterprise-grade SSL encryption, conduct regular security audits,
+              and strictly adhere to OWASP standards to protect your sensitive data.
             </div>
           </div>
         </div>
 
-        <div class="faq-item group">
+        <div class="faq-item group border-b border-white/10">
           <button
-            class="faq-toggle w-full flex items-center justify-between bg-black  p-6 bg-black rounded-xl transition-all hover:bg-opacity-90">
-            <span class="text-left font-bold text-lg">Do We Build Multilingual Websites?</span>
-            <svg class="w-6 h-6 transform transition-transform  " fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+            class="faq-toggle w-full flex items-center justify-between py-8 text-left transition-all hover:bg-white/[0.02] px-4 rounded-lg">
+            <span
+              class="text-lg md:text-xl font-light tracking-wide text-gray-300 group-hover:text-white transition-colors">Do
+              we build multilingual websites?</span>
+            <div class="relative flex items-center justify-center w-6 h-6">
+              <div class="absolute w-full h-[1px] bg-gold-gradient"></div>
+              <div class="icon-v absolute w-[1px] h-full bg-gold-gradient transition-transform duration-500"></div>
+            </div>
           </button>
-          <div class="faq-content max-h-0 overflow-hidden transition-all   ease-in-out bg-black/5 rounded-b-xl">
-            <div class="p-6 text-white">
-              Yes, we specialize in building global-ready platforms with localized content management systems to help
-              you reach international markets.
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+            <div class="px-4 pb-8 text-gray-400 font-light leading-relaxed max-w-2xl">
+              Yes, we engineer global-ready platforms with localized CMS capabilities, allowing you to scale into
+              international markets with seamless multi-language support.
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
+  <style>
+    /* Premium Slide & Icon Transition */
+    .faq-item.active .faq-content {
+      max-height: 400px;
+    }
+
+    .faq-item.active .icon-v {
+      transform: rotate(90deg);
+      opacity: 0;
+    }
+
+    .faq-toggle:focus {
+      outline: none;
+    }
+    .bg-gold{
+            background: var(--metal-gold);
+
+    }
+    .btn-gold {
+      background: var(--metal-gold);
+      color: black;
+      font-weight: 700;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+      font-size: 15px;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    }
+    .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .project-card:hover {
+            border-color: rgba(197, 163, 103, 0.4);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .glass-nav {
+            background: rgba(10, 10, 11, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.6);
+            transition: filter 0.8s ease, transform 0.8s ease;
+        }
+
+        .project-card:hover .project-image {
+            filter: grayscale(40%) brightness(0.7);
+            transform: scale(1.02);
+        }
+
+        .stat-line {
+            height: 1px;
+            background: linear-gradient(90deg, var(--soft-gold), transparent);
+            width: 80px;
+        }
+         .team-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.5);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .image-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-card:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .social-icon {
+            color: #fff;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #D4AF37;
+            transform: scale(1.2);
+        }
+
+        .cta-button {
+            background: var(--gold-metallic);
+            color: #000;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(170, 119, 28, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(170, 119, 28, 0.5);
+        }
+
+        .glow-effect {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+  </style>
+
+  <script>
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const currentItem = button.parentElement;
+
+        // Optional: Close other items when opening one (Accordion Style)
+        // document.querySelectorAll('.faq-item').forEach(item => {
+        //    if(item !== currentItem) item.classList.remove('active');
+        // });
+
+        currentItem.classList.toggle('active');
+      });
+    });
+  </script>
+
   <!-- NEW: HIGH CONVERSION CONTACT SECTION -->
   <section id="contact" class="py-24">
     <div class="container mx-auto px-6">
-      <div class="bg-gold-gradient rounded-[3rem] p-12 md:p-20 text-black flex flex-col lg:flex-row gap-12 items-center">
+      <div
+        class="bg-gold rounded-[3rem] p-12 md:p-20 text-black flex flex-col lg:flex-row gap-12 items-center">
         <div class="lg:w-1/2">
           <h2 class="text-2xl md:text-4xl font-black mb-6 leading-tight">Ready to scale your <br /> digital
             infrastructure?</h2>
@@ -1294,13 +1664,13 @@
           </p>
           <div class="flex flex-col gap-4">
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center"><i
-                  class="fas fa-check"></i></div>
+              <div class="w-12 h-12 bg-black rounded-full flex items-center justify-center"><i
+                  class="fas fa-check text-white"></i></div>
               <span class="font-bold">No-obligation architectural audit</span>
             </div>
             <div class="flex items-center gap-4">
-              <div class="w-12 h-12 bg-black/10 rounded-full flex items-center justify-center"><i
-                  class="fas fa-check"></i></div>
+              <div class="w-12 h-12 bg-black rounded-full flex items-center justify-center"><i
+                  class="fas fa-check text-white"></i></div>
               <span class="font-bold">Direct access to Lead Engineers</span>
             </div>
           </div>
@@ -1348,75 +1718,74 @@
     </div>
     <span class="font-bold">Message sent successfully!</span>
   </div>
-<script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <footer class="bg-black text-white border-t border-white/10 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-<footer class="bg-black text-white border-t border-white/10 pt-16 pb-8">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-      
-      <div class="space-y-6">
-        <a href="#" class="flex items-center gap-3 group">
-          <img src="logo.png" alt="Zulnova Logo" class="h-10 transition-transform group-hover:scale-105">
-          <span class="text-2xl font-bold tracking-tighter hover:bg-gold-gradient hover:bg-clip-text hover:text-transparent transition-all duration-300">
-            Zulnova
-          </span>
-        </a>
-        <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
-          Crafting exceptional digital experiences with a touch of gold. We blend innovation with luxury design to elevate your brand.
-        </p>
-        <div class="flex gap-4">
-          <a href="https://www.linkedin.com/company/zulnova/" class="p-2 rounded-full border border-white/10 hover:border-accent hover:text-accent transition-all duration-300">
-            <i data-lucide="instagram" class="w-4 h-4"></i>
-          </a>
-          <a href="https://www.linkedin.com/company/zulnova/" class="p-2 rounded-full border border-white/10 hover:border-accent hover:text-accent transition-all duration-300">
-            <i data-lucide="message-circle" class="w-4 h-4"></i>
-          </a>
-          <a href="https://www.linkedin.com/company/zulnova/" class="p-2 rounded-full border border-white/10 hover:border-accent hover:text-accent transition-all duration-300">
-            <i data-lucide="linkedin" class="w-4 h-4"></i>
-          </a>
-           <a href="https://www.linkedin.com/company/zulnova/" class="p-2 rounded-full border border-white/10 hover:border-accent hover:text-accent transition-all duration-300">
-            <i data-lucide="mail" class="w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-12 mb-16">
 
-      <div class="grid grid-cols-2 gap-y-10 mb-12">
-        <div>
-        <ul class="space-y-4 text-sm text-gray-400">
-          <li><a href="#about" class="hover:text-accent transition-colors">About Us</a></li>
-          <li><a href="#portfolio-index" class="hover:text-accent transition-colors">Our Portfolio</a></li>
-          <li><a href="#services" class="hover:text-accent transition-colors">Services</a></li>
-          <li><a href="#contact" class="hover:text-accent transition-colors">Contact</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 class="text-sm font-bold uppercase tracking-widest text-white mb-6">Contact</h4>
-        <ul class="space-y-4 text-sm text-gray-400">
-          <li class="flex items-center gap-3">
-            <i data-lucide="mail" class="w-4 h-4 text-accent hover:text-accent transition-all duration-300"></i>
-            <span class="hover:text-accent transition-all duration-300">hello.zulnova@gmail.com</span>
-          </li>
-          <li class="flex items-center gap-3 font-semibold text-white hover:text-accent transition-all duration-300">
-            <i data-lucide="phone" class="w-4 h-4 text-accent"></i>
-            <span>+92-(321)-1042860</span>
-          </li>
-           <li class="flex items-center gap-3 font-semibold text-white">
-            <i data-lucide="linkedin" class="w-4 h-4 text-accent"></i>
-             <a href="https://www.linkedin.com/company/zulnova/" class="hover:text-accent transition-all duration-300">
-                     <span>Linkedin</span>
-
+        <div class="space-y-8">
+          <a href="#" class="flex items-center gap-3 group">
+            <img src="logo.png" alt="Zulnova Logo" class="h-10 transition-transform group-hover:scale-105">
+            <span
+              class="text-2xl font-bold tracking-tighter hover:bg-gold-gradient hover:bg-clip-text hover:text-transparent transition-all duration-300">
+              Zulnova
+            </span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+            Crafting exceptional digital experiences with a touch of gold. We blend innovation with luxury design to
+            elevate your brand.
+          </p>
+          <div class="flex gap-4">
+            <a href="#"
+              class="gold-text p-2 rounded-full border border-white/10 hover:border-accent hover:gold-text transition-all duration-300">
+              <i data-lucide="instagram" class="w-4 h-4 text-accent"></i>
             </a>
-          </li>
-        </ul>
+            <a href="#"
+              class="p-2 rounded-full border border-white/10 hover:border-accent hover:gold-text transition-all duration-300">
+              <i data-lucide="message-circle" class="w-4 h-4 text-accent"></i>
+            </a>
+            <a href="#"
+              class="p-2 rounded-full border border-white/10 hover:border-accent hover:gold-text transition-all duration-300">
+              <i data-lucide="linkedin" class="w-4 h-4 text-accent"></i>
+            </a>
+            <a href="#"
+              class="p-2 rounded-full border border-white/10 hover:border-accent hover:gold-text transition-all duration-300">
+              <i data-lucide="mail" class="w-4 h-4 text-accent"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-widest text-white mb-6">Contact</h4>
+          <ul class="space-y-4 text-sm text-gray-400">
+            <li class="flex items-center gap-3">
+              <i data-lucide="mail" class="w-4 h-4 text-accent"></i>
+              <span class="hover:gold-text transition-all duration-300 truncate">hello.zulnova@gmail.com</span>
+            </li>
+            <li class="flex items-center gap-3 font-semibold text-white hover:gold-text transition-all duration-300">
+              <i data-lucide="phone" class="w-4 h-4 text-accent text-accent"></i>
+              <span>+92-(321)-1042860</span>
+            </li>
+            <li class="flex items-center gap-3 font-semibold text-white">
+              <i data-lucide="linkedin" class="w-4 h-4 text-accent"></i>
+              <a href="https://www.linkedin.com/company/zulnova/" class="hover:gold-text transition-all duration-300">
+                <span>LinkedIn</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </div>
 
+      <div
+        class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+        <p>© 2024 Zulnova. All rights reserved.</p>
+        <p>Designed with excellence.</p>
+      </div>
     </div>
-  </div>
-</footer>
-
-<script>lucide.createIcons();</script>
+  </footer>
+  <script>lucide.createIcons();</script>
 
   <script>
     const contactForm = document.getElementById('contact-form');
@@ -1461,20 +1830,20 @@
       }
     });
     // 1. Mobile Menu Toggle
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  // Optional: Close menu when a link is clicked
-  const navLinks = mobileMenu.querySelectorAll('a');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
     });
-  });
+
+    // Optional: Close menu when a link is clicked
+    const navLinks = mobileMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
 
     // 2. Portfolio Slider
     const portfolioTrack = document.getElementById('portfolio-track');
